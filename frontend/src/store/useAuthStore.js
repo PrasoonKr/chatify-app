@@ -20,7 +20,7 @@ export const useAuthStore = create((set, get) => ({
       get().connectSocket();
     } catch (error) {
       if(error.response?.status!==401)
-        console.log("Error in authCheck:", error);
+        console.error("Error in authCheck:", error);
         set({ authUser: null });
       }
      finally {
