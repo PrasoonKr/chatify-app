@@ -19,9 +19,11 @@ export const useAuthStore = create((set, get) => ({
       set({ authUser: res.data });//axios parses the json response so res.data is the json object
       get().connectSocket();
     } catch (error) {
-      console.log("Error in authCheck:", error);
-      set({ authUser: null });
-    } finally {
+      if(error.response?.status!==401)
+        console.log("Error in authCheck:", error);
+        set({ authUser: null });
+      }
+     finally {
       set({ isCheckingAuth: false });
     }
   },
