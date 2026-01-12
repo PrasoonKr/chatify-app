@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { ENV } from "./env.js";
-
+//export named to access these in other files we use {} curly braces
+//but when we use export default we do not use {} curly braces
 export const connectDB = async () => {
   try {
     const { MONGO_URI } = ENV;
